@@ -1,16 +1,16 @@
 package br.com.app.CRUD.services;
 
-import br.com.app.CRUD.data.vo.PersonVO;
+import br.com.app.CRUD.data.vo.v1.PersonVO;
+import br.com.app.CRUD.data.vo.v2.PersonVOv2;
 import br.com.app.CRUD.exceptions.ResourceNotFoundException;
 import br.com.app.CRUD.mapper.DozerMapper;
-import br.com.app.CRUD.model.Person;
+import br.com.app.CRUD.mapper.custom.PersonMapper;
+import br.com.app.CRUD.data.model.Person;
 import br.com.app.CRUD.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Logger;
 
 @Service
@@ -19,6 +19,9 @@ public class PersonService {
 
     @Autowired
     PersonRepository repository;
+
+    @Autowired
+    PersonMapper mapper;
     public List<PersonVO> findAll() {
         logger.info("Find all persons");
 
@@ -42,6 +45,13 @@ public class PersonService {
         var vo = DozerMapper.parseObject(repository.save(entity), PersonVO.class);
         return vo;
     }
+
+    public PersonVOv2 createV2(PersonVOv2 person) {
+        var entity = mapper.convertVoToEntity(person);
+        var vo = mapper.convertEntityToVo(repository.save(entity));
+        return vo;
+    }
+
 
     public PersonVO update(PersonVO person) {
         logger.info("Update one person!");

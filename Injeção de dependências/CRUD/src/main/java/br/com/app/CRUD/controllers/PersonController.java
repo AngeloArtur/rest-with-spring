@@ -1,6 +1,7 @@
 package br.com.app.CRUD.controllers;
 
-import br.com.app.CRUD.data.vo.PersonVO;
+import br.com.app.CRUD.data.vo.v1.PersonVO;
+import br.com.app.CRUD.data.vo.v2.PersonVOv2;
 import br.com.app.CRUD.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -33,6 +34,14 @@ public class PersonController {
             @RequestBody PersonVO person) throws Exception {
         return personService.create(person);
     }
+
+    @PostMapping(value = "/v2", consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public PersonVOv2 createv2(
+            @RequestBody PersonVOv2 person) throws Exception {
+        return personService.createV2(person);
+    }
+
 
     @PutMapping( consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)

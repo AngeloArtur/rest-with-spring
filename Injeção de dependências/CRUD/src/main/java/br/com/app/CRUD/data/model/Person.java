@@ -1,4 +1,4 @@
-package br.com.app.CRUD.model;
+package br.com.app.CRUD.data.model;
 
 
 import jakarta.persistence.*;
