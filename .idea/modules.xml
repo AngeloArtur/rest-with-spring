@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Injeção de dependências_1/CRUD/CRUD.iml" filepath="$PROJECT_DIR$/Injeção de dependências_1/CRUD/CRUD.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Injeção de dependências/CRUD/CRUD (1).iml" filepath="$PROJECT_DIR$/Injeção de dependências/CRUD/CRUD (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SpringBoot.iml" filepath="$PROJECT_DIR$/.idea/SpringBoot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rest-with-spring/rest-with-spring/rest-with-springboot/rest-with-springboot.iml" filepath="$PROJECT_DIR$/rest-with-spring/rest-with-spring/rest-with-springboot/rest-with-springboot.iml" />
+    </modules>
+  </component>
+</project>
