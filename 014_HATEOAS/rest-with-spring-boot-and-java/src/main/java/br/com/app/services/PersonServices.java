@@ -5,6 +5,7 @@ import java.util.logging.Logger;
 
 import br.com.app.controllers.PersonController;
 import br.com.app.data.vo.v1.PersonVO;
+import br.com.app.exceptions.RequiredObjectIsNullObjectException;
 import br.com.app.mapper.DozerMapper;
 import br.com.app.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +51,8 @@ public class PersonServices {
 	
 	public PersonVO create(PersonVO person) {
 
+		if (person == null) throw new RequiredObjectIsNullObjectException();
+
 		logger.info("Creating one person!");
 		var entity = DozerMapper.parseObject(person, Person.class);
 		var vo =  DozerMapper.parseObject(repository.save(entity), PersonVO.class);
@@ -58,7 +61,9 @@ public class PersonServices {
 	}
 	
 	public PersonVO update(PersonVO person) {
-		
+
+		if (person == null) throw new RequiredObjectIsNullObjectException();
+
 		logger.info("Updating one person!");
 		
 		var entity = repository.findById(person.getKey())
